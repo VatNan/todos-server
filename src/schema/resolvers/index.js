@@ -19,12 +19,8 @@ const resolvers = {
       todos.push({ id: Math.random() + '', ...todo })
       return todos[todos.length - 1]
     },
-    toggleTodo:(_, { todoId }) => {
-      return todos
-    },
-    deleteTodo: (_, { todoId }) => {
-      return todos
-    }
+    toggleTodo: (_, { todoId }) => todos,
+    deleteTodo: (_, { todoId }) => todos
   }
 }
 

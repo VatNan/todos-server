@@ -2,7 +2,7 @@ const express = require('express')
 const bodyParser = require('body-parser')
 const { makeExecutableSchema } = require('graphql-tools')
 const { graphqlExpress, graphiqlConnect  } = require('apollo-server-express')
-const { typeDefs, resolvers } = require('./schema')
+const { typeDefs, resolvers } = require('./src/schema')
 
 const PORT = 3000
 const app = express()
