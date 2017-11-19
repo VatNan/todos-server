@@ -20,5 +20,11 @@
   "bugs": {
     "url": "https://github.com/VatNan/todos-server/issues"
   },
-  "homepage": "https://github.com/VatNan/todos-server#readme"
+  "homepage": "https://github.com/VatNan/todos-server#readme",
+  "dependencies": {
+    "apollo-server-express": "^1.2.0",
+    "body-parser": "^1.18.2",
+    "express": "^4.16.2",
+    "graphql": "^0.11.7"
+  }
 }
