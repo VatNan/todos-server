@@ -47,7 +47,7 @@ const typeDefs = `
 const resolvers = {
   Query: {
     posts: () => posts,
-    author: (_, { id }) => find(authors, { id: id }),
+    author: (_, { id }) => authors.find(author => author.id === id),
   },
   Mutation: {
     upvotePost: (_, { postId }) => {
@@ -60,10 +60,10 @@ const resolvers = {
     },
   },
   Author: {
-    posts: (author) => filter(posts, { authorId: author.id }),
+    posts: (author) => posts.filter(post => post.authorId === author.id),
   },
   Post: {
-    author: (post) => find(authors, { id: post.authorId }),
+    author: (post) => authors.find(author => post.authorId === author.id),
   }
 }
 const app = express()
