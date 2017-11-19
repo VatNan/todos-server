@@ -44,6 +44,18 @@ const typeDefs = `
     ): Post
   }
 `
+
+const RootQuery = `
+  type RootQuery {
+    post(id: Int!): Post
+  }
+`;
+
+const SchemaDefinition = `
+  schema {
+    query: RootQuery
+  }
+`
 const resolvers = {
   Query: {
     posts: () => posts,
@@ -51,7 +63,7 @@ const resolvers = {
   },
   Mutation: {
     upvotePost: (_, { postId }) => {
-      const post = find(posts, { id: postId });
+      const post = posts.find(post => post.id === postId);
       if (!post) {
         throw new Error(`Couldn't find post with id ${postId}`);
       }
@@ -68,7 +80,7 @@ const resolvers = {
 }
 const app = express()
 const schema = makeExecutableSchema({
-  typeDefs,
+  typeDefs: [typeDefs],
   resolvers
 })
 app.use('/graphql', bodyParser.json(), graphqlExpress({ schema }))
