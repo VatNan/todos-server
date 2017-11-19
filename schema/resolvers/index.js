@@ -13,6 +13,18 @@ const todos = [
 const resolvers = {
   Query: {
     todos: () => todos
+  },
+  Mutation: {
+    addTodo: (_, { todo }) => {
+      todos.push({ id: Math.random() + '', ...todo })
+      return todos[todos.length - 1]
+    },
+    toggleTodo:(_, { todoId }) => {
+      return todos
+    },
+    deleteTodo: (_, { todoId }) => {
+      return todos
+    }
   }
 }
 
