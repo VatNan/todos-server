@@ -1,27 +1,12 @@
+const inputDef = require('./inputDefs')
+const queryDef = require('./queryDef')
+const mutationDef = require('./mutationDef')
 const todoDef = require('./todoDef')
 
-const query = `
-  type Query {
-    todos: [Todo]!
-  }
-`
-const input = `
-  input TodoInput {
-    text: String!
-    isComplete: Boolean = false
-  }
-`
-const mutation = `
-  type Mutation {
-    addTodo (todo: TodoInput): Todo
-    toggleTodo (todoId: String): Todo
-    deleteTodo (todoId: String): Todo
-  }
-`
 const typeDefs = [
-  query,
-  input,
-  mutation,
+  queryDef,
+  inputDef,
+  mutationDef,
   todoDef
 ]
 
