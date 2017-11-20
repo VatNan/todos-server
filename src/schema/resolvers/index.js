@@ -1,26 +1,18 @@
-const todos = [
-  {
-    id: '0001ee',
-    text: 'test naja 01',
-    isComplete: false
-  },
-  {
-    id: '0002ee',
-    text: 'test naja 02',
-    isComplete: false
-  }
-]
+const {
+  getTodos,
+  addTodo,
+  toggleTodo,
+  deleteTodo
+} = require('../../db')
+
 const resolvers = {
   Query: {
-    todos: () => todos
+    todos: () => getTodos()
   },
   Mutation: {
-    addTodo: (_, { todo }) => {
-      todos.push({ id: Math.random() + '', ...todo })
-      return todos[todos.length - 1]
-    },
-    toggleTodo: (_, { todoId }) => todos,
-    deleteTodo: (_, { todoId }) => todos
+    addTodo: (_, { todo }) => addTodo(todo),
+    toggleTodo: (_, { todoId }) => toggleTodo(todoId),
+    deleteTodo: (_, { todoId }) => deleteTodo(todoId)
   }
 }
 

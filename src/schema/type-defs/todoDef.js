@@ -1,6 +1,6 @@
 const todoDef = `
   type Todo {
-    id: ID!
+    _id: ID!
     text: String!
     isComplete: Boolean!
   }
