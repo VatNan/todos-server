@@ -5,9 +5,9 @@ const { graphqlExpress, graphiqlConnect } = require('apollo-server-express')
 const mongoose = require('mongoose')
 const { typeDefs, resolvers } = require('./src/schema')
 const dumpDb = require('./dumpDb')
+const { MONGO_URL } = require('./config/dbConfig')
+const { SERVER_PORT } = require('./config/serverConfig')
 
-const PORT = 3000
-const MONGO_URL = 'mongodb://localhost/testTodo'
 const app = express()
 const schema = makeExecutableSchema({
   typeDefs,
@@ -25,4 +25,4 @@ mongoose.Promise = global.Promise
 // config graphql
 app.use('/graphql', bodyParser.json(), graphqlExpress({ schema }))
 app.use('/graphiql', graphiqlConnect({ endpointURL: '/graphql' }))
-app.listen(PORT)
+app.listen(SERVER_PORT)
