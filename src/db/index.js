@@ -1,4 +1,9 @@
-const { getTodos, addTodo, toggleTodo, deleteTodo } = require('./functions')
+const {
+  getTodos,
+  addTodo,
+  toggleTodo,
+  deleteTodo
+} = require('./functions')
 const { todoModel } = require('./models')
 
 module.exports = {
