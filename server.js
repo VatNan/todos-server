@@ -4,7 +4,7 @@ const { makeExecutableSchema } = require('graphql-tools')
 const { graphqlExpress, graphiqlConnect } = require('apollo-server-express')
 const mongoose = require('mongoose')
 const { typeDefs, resolvers } = require('./src/schema')
-const dumpDb = require('./dumpDb')
+const dumpDB = require('./dumpDB')
 const { MONGO_URL } = require('./config/dbConfig')
 const { SERVER_PORT } = require('./config/serverConfig')
 
@@ -19,7 +19,7 @@ mongoose.connect(MONGO_URL, { useMongoClient: true }, (error) => {
     console.error('Please make sure Mongodb is installed and running!')
     throw error
   }
-  dumpDb()
+  dumpDB()
 })
 mongoose.Promise = global.Promise
 // config graphql

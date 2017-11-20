@@ -23,7 +23,7 @@ const toggleTodo = async todoId => {
   try {
     const todo = await Todo.findById(todoId).exec()
     todo.isComplete = !todo.isComplete
-    const result = todo.save()
+    const result = await todo.save()
     return result
   } catch (error) {
     throw new Error(error)
@@ -32,8 +32,7 @@ const toggleTodo = async todoId => {
 
 const deleteTodo = async todoId => {
   try {
-    const todo = await Todo.findById(todoId).exec()
-    const result = await todo.remove()
+    const result = await Todo.findByIdAndRemove(todoId).exec()
     return result
   } catch (error) {
     throw new Error(error)

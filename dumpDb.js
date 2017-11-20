@@ -1,7 +1,7 @@
 const { todoModel: Todo } = require('./src/db')
 const { IS_DUMP_DB } = require('./config/dbConfig')
 
-const dumpDb = async () => {
+const dumpDB = async () => {
   try {
     const todoLength = await Todo.count().exec()
     if (todoLength > 0 || !IS_DUMP_DB) {
@@ -13,4 +13,4 @@ const dumpDb = async () => {
   }
 }
 
-module.exports = dumpDb
+module.exports = dumpDB
